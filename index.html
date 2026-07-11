@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Golden Hour Collective — Live Music, Maui</title>
+<meta name="description" content="The Golden Hour Collective is a Maui-based live band for weddings, corporate events, and private parties — pop hits from the 60s to today.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23241f38'/%3E%3Ccircle cx='50' cy='40' r='16' fill='%23d96e3f'/%3E%3Cpath d='M22 62q10-8 20 0t20 0t20 0' stroke='%236fa6ab' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#top" class="wordmark">The Golden Hour Collective</a>
+      <div class="nav-right">
+        <div class="nav-links" id="navLinks">
+          <a href="#about" data-nav="about">About<span class="nav-underline"></span></a>
+          <a href="#watch" data-nav="watch">Watch<span class="nav-underline"></span></a>
+          <a href="#songs" data-nav="songs">Songs<span class="nav-underline"></span></a>
+          <a href="#words" data-nav="words">Reviews<span class="nav-underline"></span></a>
+        </div>
+        <a href="#contact" class="btn btn-primary btn-nav">Request a date</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="hero">
+    <div class="hero-left">
+      <div class="eyebrow">Maui, Hawai‘i &nbsp;·&nbsp; Weddings &amp; Events</div>
+      <h1 class="hero-title">The Golden Hour<br>Collective</h1>
+      <h2 class="hero-subtitle">Island vibes for all occasions</h2>
+      <div class="hero-copy">With over a decade of experience, The Golden Hour Collective brings all the songs you love to any occasion.&nbsp;<br><br>From a barefoot ceremony on the sand to a black-tie reception, we read the room and shape the night: tender and acoustic for vows, full and rhythmic when the dancing starts.</div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Request a date</a>
+        <a href="#watch" class="btn btn-outline">Watch us play</a>
+      </div>
+      <div class="hero-tags">
+        <span>Weddings</span><span class="tag-sep">|</span>
+        <span>Corporate Events</span><span class="tag-sep">|</span>
+        <span>Private Parties</span><span class="tag-sep">|</span>
+        <span>Ceremony &amp; Cocktail</span><span class="tag-sep">|</span>
+        <span>Sunset Sets</span>
+      </div>
+    </div>
+    <div class="hero-right" style="background-image: url('assets/band-portrait.jpg');">
+      <div class="hero-right-fade"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="about-inner">
+      <div class="about-media">
+        <img src="assets/band-foliage.jpg" alt="The Golden Hour Collective band portrait among tropical foliage">
+      </div>
+      <div class="about-copy">
+        <div class="eyebrow eyebrow-teal">Who we are</div>
+        <h2 class="section-title section-title-light">Your premier island performance collective</h2>
+        <p class="lede lede-light">The Golden Hour Collective is a Maui-based group built around warm harmonies and songs everyone knows by heart.</p>
+        <p class="body-light">We tailor our sound to fit your vision providing options from soulful acoustic duo to a dynamic quartet to a full ensemble with horns. We are excited to make your ideas come to life.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WATCH -->
+  <section id="watch" class="watch">
+    <div class="section-inner">
+      <div class="section-heading">
+        <div class="eyebrow">Hear for yourself</div>
+        <h2 class="section-title">Live from the islands</h2>
+      </div>
+      <div class="watch-player-wrap">
+        <div class="watch-player">
+          <iframe id="mainVideo" src="https://www.youtube.com/embed/bnsnFK3bFfY?rel=0" title="Featured performance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="watch-controls">
+          <button type="button" id="prevVideo" class="video-arrow" aria-label="Previous video">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="14.5 5 8 12 14.5 19"></polyline></svg>
+          </button>
+          <div class="video-dots" id="videoDots"></div>
+          <button type="button" id="nextVideo" class="video-arrow" aria-label="Next video">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9.5 5 16 12 9.5 19"></polyline></svg>
+          </button>
+        </div>
+      </div>
+      <div class="watch-more">
+        <a href="https://www.youtube.com/@Timothy_McDill/featured" target="_blank" rel="noopener">More videos on YouTube →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SONG LIST -->
+  <section id="songs" class="songs">
+    <div class="section-inner">
+      <div class="songs-heading">
+        <div class="eyebrow eyebrow-teal">The repertoire</div>
+        <h2 class="section-title section-title-light">The songs that move a room.</h2>
+        <p class="lede lede-light">Marley to Mraz, Stevie to Styles, a little Hawaiian, a little bossa nova — familiar and warm. Select a genre to filter the list.</p>
+      </div>
+      <div class="genre-chips" id="genreChips"></div>
+      <div class="song-list" id="songList"></div>
+      <p class="song-count" id="songCount"></p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="words" class="testimonials">
+    <div class="section-heading">
+      <div class="eyebrow">Kind words</div>
+      <h2 class="section-title">Don’t just take<br>our word for it</h2>
+    </div>
+    <div class="testimonial-grid">
+      <figure class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>“Our guests are still talking about the music. They read the room perfectly and the dance floor never emptied.”</blockquote>
+        <figcaption>— Sarah &amp; Mike · Wailea wedding</figcaption>
+      </figure>
+      <figure class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>“Professional, warm, and unbelievably talented. The acoustic ceremony set brought everyone to tears.”</blockquote>
+        <figcaption>— Leilani &amp; James · Private estate, Hāna</figcaption>
+      </figure>
+      <figure class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>“We hired them for our company retreat and they were the highlight. Easy to work with from first email to last song.”</blockquote>
+        <figcaption>— Dana R. · Corporate event planner</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact" style="background-image: linear-gradient(rgba(36,31,56,0.62), rgba(36,31,56,0.72)), url('assets/guitar-sing.jpg');">
+    <div class="contact-inner">
+      <div class="contact-copy">
+        <div class="eyebrow eyebrow-teal">Let’s talk</div>
+        <h2 class="section-title section-title-light">Tell us about<br>your day.</h2>
+        <p class="lede lede-contact">Share your date and venue and we’ll send availability, packages, and answer any questions. We play across Maui and the neighbor islands.</p>
+        <div class="contact-links">
+          <a href="mailto:hello@alohasunsetsmaui.com"><span class="contact-icon">✉</span> hello@alohasunsetsmaui.com</a>
+          <a href="https://www.instagram.com/timothy_mcdill/" target="_blank" rel="noopener"><span class="contact-icon">◉</span> @timothy_mcdill</a>
+          <a href="https://www.youtube.com/@Timothy_McDill/featured" target="_blank" rel="noopener"><span class="contact-icon">►</span> YouTube channel</a>
+        </div>
+      </div>
+      <form class="contact-form" id="inquiryForm">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="fName">Name</label>
+            <input type="text" id="fName" name="name" autocomplete="name">
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="fEmail">Email</label>
+              <input type="email" id="fEmail" name="email" autocomplete="email">
+            </div>
+            <div class="form-field">
+              <label for="fDate">Event date</label>
+              <input type="text" id="fDate" name="date" placeholder="e.g. June 2026">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="fMsg">Tell us about your event</label>
+            <textarea id="fMsg" name="message" rows="4" placeholder="Venue, type of event, what you're imagining…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">Send inquiry</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-wordmark">The Golden Hour Collective</span>
+      <span>Live music · Maui, Hawai‘i</span>
+      <span id="footerYear"></span>
+    </div>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
