@@ -262,7 +262,7 @@
     var fEmail = document.getElementById("fEmail").value;
     var fDate = document.getElementById("fDate").value;
     var fMsg = document.getElementById("fMsg").value;
-    var subject = encodeURIComponent("Booking inquiry — The Golden Hour Collective");
+    var subject = encodeURIComponent("Booking inquiry — Ocean Tones Collective");
     var body = encodeURIComponent(
       "Name: " + (fName || "") + "\n" +
       "Email: " + (fEmail || "") + "\n" +
@@ -273,5 +273,5 @@
   });
 
   /* ---------- Footer year ---------- */
-  document.getElementById("footerYear").textContent = "© " + new Date().getFullYear() + " The Golden Hour Collective";
+  document.getElementById("footerYear").textContent = "© " + new Date().getFullYear() + " Ocean Tones Collective";
 })();
