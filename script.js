@@ -4,20 +4,21 @@
   var GENRE_DEFS = [
     ["all", "All Songs"],
     ["top40", "Top 40"],
-    ["dance", "'80s–'00s Dance"],
+    ["dance", "'80s–'00s Nostalgic"],
     ["soul", "Soul & R&B"],
     ["rock", "Rock & Americana"],
     ["latin", "Reggae & Latin"],
     ["folk", "Folk & Hawaiian"]
   ];
 
-  var GENRES = ["soul","top40","soul","soul","soul","folk","rock","rock","rock","top40","dance","latin","latin","latin","latin","folk","folk","dance","top40","top40","top40","rock","top40","top40","latin","dance","soul","rock","rock","rock","top40","rock","rock","top40","top40","top40","top40","rock","soul","rock","rock","rock","soul","soul","rock","top40","folk","folk","folk","folk","folk","folk","dance","dance","folk","folk","folk","folk","folk","soul","folk","folk","folk","folk","rock","rock","folk","folk","rock","top40","top40","top40","rock","dance","latin","latin","folk","top40","top40","soul","soul","latin","rock","rock","rock","dance","soul","dance","rock","top40","rock","rock","dance","top40","rock","top40","latin","top40","folk","latin","top40","soul","soul","latin","rock","top40","top40","dance","soul","dance","folk","soul","folk","latin","rock","folk","latin","dance","dance","dance","dance"];
+    var GENRES = ["soul","top40","soul","soul","dance","soul","folk","rock","rock","rock","top40","dance","latin","latin","latin","latin","latin","folk","dance","top40","top40","top40","rock","top40","top40","latin","dance","soul","rock","rock","rock","top40","rock","rock","top40","top40","top40","top40","rock","soul","rock","rock","rock","soul","soul","rock","top40","folk","folk","folk","folk","folk","folk","dance","dance","folk","folk","folk","folk","folk","soul","folk","folk","folk","folk","rock","rock","folk","folk","rock","top40","top40","top40","rock","dance","latin","latin","folk","top40","top40","soul","soul","latin","rock","rock","rock","dance","soul","dance","rock","top40","rock","rock","dance","top40","rock","dance","latin","top40","folk","latin","top40","soul","soul","latin","rock","top40","top40","dance","soul","dance","folk","soul","folk","latin","rock","folk","latin","dance","dance","dance","dance"];
 
   var RAW = [
     "Al Green - Let’s Stay Together",
     "Alex Warren - Ordinary",
     "Alicia Keys - If I Ain’t Got You",
     "Amy Winehouse - Valerie",
+    "Arctic Monkeys - Fluorescent Adolescent",
     "Aretha Franklin - Respect",
     "Bahamas - Lost in the Light",
     "The Beatles - Here Comes the Sun",
@@ -71,7 +72,7 @@
     "Iron and Wine - Such Great Heights",
     "Jack Johnson - Belle",
     "Jack Johnson - Better Together",
-    "Jack Johnson - Brushfire Fairytales",
+    "Jack Johnson - Inaudible Melodies",
     "Jack Johnson - Banana Pancakes",
     "James Taylor - How Sweet It Is (To Be Loved By You)",
     "Jason Mraz - I’m Yours",
