@@ -255,6 +255,26 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* ---------- Mobile nav toggle ---------- */
+  var navToggle = document.getElementById("navToggle");
+  var navMenu = document.getElementById("navMenu");
+  if (navToggle && navMenu) {
+    var setMenu = function (open) {
+      navMenu.classList.toggle("open", open);
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    navToggle.addEventListener("click", function () {
+      setMenu(!navMenu.classList.contains("open"));
+    });
+    Array.prototype.slice.call(navMenu.querySelectorAll("a")).forEach(function (a) {
+      a.addEventListener("click", function () { setMenu(false); });
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 640) setMenu(false);
+    });
+  }
+
   /* ---------- Contact form ---------- */
   var form = document.getElementById("inquiryForm");
   form.addEventListener("submit", function (e) {
