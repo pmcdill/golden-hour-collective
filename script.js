@@ -156,9 +156,13 @@
 
   /* ---------- Song list + genre filter ---------- */
   var activeGenre = "all";
+  var songsExpanded = false;
   var chipsEl = document.getElementById("genreChips");
   var listEl = document.getElementById("songList");
   var countEl = document.getElementById("songCount");
+  var fadeEl = document.getElementById("songFade");
+  var expandEl = document.getElementById("songExpand");
+  var viewAllBtn = document.getElementById("viewAllBtn");
 
   function renderChips() {
     chipsEl.innerHTML = "";
@@ -170,6 +174,7 @@
       if (key === activeGenre) btn.classList.add("active");
       btn.addEventListener("click", function () {
         activeGenre = key;
+        songsExpanded = false;
         renderChips();
         renderSongs();
       });
@@ -197,7 +202,38 @@
       ? ALL_SONGS.length + " songs and growing"
       : filtered.length + " " + activeLabel + " song" + (filtered.length === 1 ? "" : "s")
     ) + "  ·  New requests welcome — we learn special songs for your first dance.";
+
+    updateCollapse();
   }
+
+  // Collapse the full "All Songs" list to a fixed height with a View all toggle.
+  // Filtered genres are shorter, so they always show in full with no button.
+  function updateCollapse() {
+    var isAll = activeGenre === "all";
+    if (isAll && !songsExpanded) {
+      listEl.classList.add("collapsed");
+      fadeEl.hidden = false;
+      expandEl.hidden = false;
+      viewAllBtn.textContent = "View all";
+    } else if (isAll && songsExpanded) {
+      listEl.classList.remove("collapsed");
+      fadeEl.hidden = true;
+      expandEl.hidden = false;
+      viewAllBtn.textContent = "Show less";
+    } else {
+      listEl.classList.remove("collapsed");
+      fadeEl.hidden = true;
+      expandEl.hidden = true;
+    }
+  }
+
+  viewAllBtn.addEventListener("click", function () {
+    songsExpanded = !songsExpanded;
+    updateCollapse();
+    if (!songsExpanded) {
+      document.getElementById("songs").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
 
   renderChips();
   renderSongs();

@@ -353,7 +353,32 @@ a { color: inherit; }
 }
 .genre-chips button.active:hover { border-color: var(--accent); color: var(--cream); }
 
+.song-list-wrap { position: relative; }
 .song-list { columns: 3 240px; column-gap: clamp(24px,4vw,56px); }
+.song-list.collapsed { max-height: 1300px; overflow: hidden; }
+.song-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 160px;
+  background: linear-gradient(to bottom, rgba(36,31,56,0), var(--ink));
+  pointer-events: none;
+}
+.song-expand { display: flex; justify-content: center; margin-top: 30px; }
+.btn-viewall {
+  padding: 12px 30px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border: 1px solid rgba(236,231,240,0.4);
+  background: transparent;
+  color: var(--cream);
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.btn-viewall:hover { border-color: var(--accent); background: var(--accent); color: var(--cream); }
 .song-row {
   break-inside: avoid;
   padding: 11px 0;
