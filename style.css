@@ -366,6 +366,7 @@ a { color: inherit; }
   pointer-events: none;
 }
 .song-expand { display: flex; justify-content: center; margin-top: 30px; }
+.song-expand[hidden], .song-fade[hidden] { display: none; }
 .btn-viewall {
   padding: 12px 30px;
   border-radius: 999px;
