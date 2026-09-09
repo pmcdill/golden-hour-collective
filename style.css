@@ -259,6 +259,7 @@ a { color: inherit; }
   border-radius: 4px;
   box-shadow: 0 30px 70px -30px rgba(36,31,56,0.5);
 }
+.about-copy .section-title { margin-bottom: 22px; }
 .about-copy p { margin: 0 0 18px; }
 .about-copy p:last-child { margin-bottom: 0; }
 
