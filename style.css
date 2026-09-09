@@ -355,7 +355,7 @@ a { color: inherit; }
 
 .song-list-wrap { position: relative; }
 .song-list { columns: 3 240px; column-gap: clamp(24px,4vw,56px); }
-.song-list.collapsed { max-height: 1300px; overflow: hidden; }
+.song-list.collapsed { max-height: 620px; overflow: hidden; }
 .song-fade {
   position: absolute;
   left: 0;
