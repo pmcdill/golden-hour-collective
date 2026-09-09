@@ -4,7 +4,7 @@
   var GENRE_DEFS = [
     ["all", "All Songs"],
     ["top40", "Top 40"],
-    ["dance", "'80s–'00s Nostalgic"],
+    ["dance", "'80s–'00s Faves"],
     ["soul", "Soul & R&B"],
     ["rock", "Rock & Americana"],
     ["latin", "Reggae & Latin"],
