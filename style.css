@@ -452,7 +452,7 @@ a { color: inherit; }
   align-items: center;
   gap: 12px;
 }
-.contact-icon { color: var(--teal); }
+.contact-icon { color: var(--teal); flex: none; display: block; }
 
 .contact-form {
   background: rgba(240,235,228,0.97);
