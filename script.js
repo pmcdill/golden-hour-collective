@@ -317,7 +317,7 @@
   }
 
   /* ---------- Contact form (FormSubmit AJAX) ---------- */
-  var FORM_ENDPOINT = "https://formsubmit.co/ajax/aloha@mauiwedding.band";
+  var FORM_ENDPOINT = "https://formsubmit.co/ajax/ae9013f98139172fdb408ac3ad6adb61";
   var form = document.getElementById("inquiryForm");
   var formStatus = document.getElementById("formStatus");
   var submitBtn = form.querySelector(".btn-submit");
