@@ -316,22 +316,73 @@
     });
   }
 
-  /* ---------- Contact form ---------- */
+  /* ---------- Contact form (FormSubmit AJAX) ---------- */
+  var FORM_ENDPOINT = "https://formsubmit.co/ajax/aloha@mauiwedding.band";
   var form = document.getElementById("inquiryForm");
+  var formStatus = document.getElementById("formStatus");
+  var submitBtn = form.querySelector(".btn-submit");
+
+  function setStatus(msg, kind) {
+    formStatus.textContent = msg;
+    formStatus.className = "form-status" + (kind ? " form-status-" + kind : "");
+    formStatus.hidden = !msg;
+  }
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    var fName = document.getElementById("fName").value;
-    var fEmail = document.getElementById("fEmail").value;
-    var fDate = document.getElementById("fDate").value;
-    var fMsg = document.getElementById("fMsg").value;
-    var subject = encodeURIComponent("Booking inquiry — Ocean Tones Collective");
-    var body = encodeURIComponent(
-      "Name: " + (fName || "") + "\n" +
-      "Email: " + (fEmail || "") + "\n" +
-      "Event date: " + (fDate || "") + "\n\n" +
-      (fMsg || "")
-    );
-    window.location.href = "mailto:aloha@mauiwedding.band?subject=" + subject + "&body=" + body;
+
+    // Honeypot — if filled, it's almost certainly a bot; pretend success and stop.
+    var honey = document.getElementById("fHoney");
+    if (honey && honey.value) {
+      form.reset();
+      setStatus("Thanks! Your inquiry is on its way — we'll be in touch soon.", "ok");
+      return;
+    }
+
+    var email = document.getElementById("fEmail").value;
+    var payload = {
+      name: document.getElementById("fName").value,
+      email: email,
+      date: document.getElementById("fDate").value,
+      message: document.getElementById("fMsg").value,
+      _subject: "New booking inquiry — Ocean Tones Collective",
+      _replyto: email,
+      _template: "table",
+      _captcha: "false"
+    };
+
+    var originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
+    setStatus("", null);
+
+    fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) {
+        return res.json().then(
+          function (data) { return { ok: res.ok, data: data }; },
+          function () { return { ok: res.ok, data: {} }; }
+        );
+      })
+      .then(function (result) {
+        var ok = result.ok && (result.data.success === "true" || result.data.success === true);
+        if (ok) {
+          form.reset();
+          setStatus("Thanks! Your inquiry is on its way — we'll be in touch soon.", "ok");
+        } else {
+          setStatus("Something went wrong sending your inquiry. Please email us directly at aloha@mauiwedding.band.", "error");
+        }
+      })
+      .catch(function () {
+        setStatus("Couldn't send right now. Please email us directly at aloha@mauiwedding.band.", "error");
+      })
+      .then(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+      });
   });
 
   /* ---------- Footer year ---------- */
