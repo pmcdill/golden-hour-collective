@@ -53,7 +53,7 @@ a { color: inherit; }
 }
 .section-title-light { color: var(--cream); }
 
-.lede { font-size: 16px; color: var(--muted-1); margin: 0; }
+.lede { font-size: 17px; line-height: 1.6; color: var(--muted-1); margin: 0; }
 .lede-light { color: var(--on-dark-1); }
 .lede-contact { color: rgba(240,235,228,0.82); max-width: 420px; margin: 0 0 34px; }
 .lede-emphasis { display: block; margin-top: 0.9em; }
@@ -211,7 +211,8 @@ a { color: inherit; }
   color: var(--accent);
 }
 .hero-copy {
-  font-size: 17.5px;
+  font-size: 17px;
+  line-height: 1.6;
   color: var(--muted-1);
   max-width: 460px;
   margin: 0 0 38px;
