@@ -11,7 +11,7 @@
     ["folk", "Folk & Hawaiian"]
   ];
 
-    var GENRES = ["soul","top40","soul","soul","dance","soul","folk","rock","rock","rock","top40","dance","latin","latin","latin","latin","latin","folk","dance","top40","top40","top40","rock","top40","top40","latin","dance","soul","rock","rock","rock","top40","rock","rock","top40","top40","top40","top40","rock","soul","rock","rock","rock","soul","soul","rock","top40","folk","folk","folk","folk","folk","folk","dance","dance","folk","folk","folk","folk","folk","soul","folk","folk","folk","folk","rock","rock","folk","folk","rock","top40","top40","top40","rock","dance","latin","latin","folk","top40","top40","soul","soul","latin","rock","rock","rock","dance","soul","dance","rock","top40","rock","rock","dance","top40","rock","dance","latin","top40","folk","latin","top40","soul","soul","latin","rock","top40","top40","dance","soul","dance","folk","soul","folk","latin","rock","folk","latin","dance","dance","dance","dance"];
+    var GENRES = ["soul","top40","soul","soul","dance","soul","folk","rock","rock","rock","top40","top40","top40","dance","latin","latin","latin","latin","latin","folk","dance","top40","top40","top40","rock","top40","top40","latin","dance","soul","rock","rock","rock","top40","rock","rock","top40","top40","top40","top40","rock","soul","dance","rock","rock","rock","soul","soul","rock","top40","folk","folk","folk","folk","folk","folk","dance","dance","folk","folk","folk","folk","folk","soul","folk","folk","folk","folk","dance","rock","rock","folk","folk","rock","top40","top40","rock","dance","latin","latin","folk","top40","top40","soul","soul","latin","rock","rock","rock","dance","soul","dance","rock","top40","rock","rock","dance","top40","rock","dance","latin","dance","top40","folk","latin","top40","soul","soul","latin","rock","top40","top40","top40","dance","soul","dance","folk","soul","folk","dance","latin","rock","folk","latin","dance","dance","dance","dance"];
 
   var RAW = [
     "Al Green - Let’s Stay Together",
@@ -24,7 +24,9 @@
     "The Beatles - Here Comes the Sun",
     "The Beatles - In My Life",
     "The Beatles - Twist and Shout",
+    "Benson Boone - Beautiful Things",
     "Beyonce - Love On Top",
+    "Billie Eilish - Birds of a Feather",
     "Blink-182 - All The Small Things",
     "Bob Marley - Is This Love",
     "Bob Marley - Stir it Up",
@@ -54,6 +56,7 @@
     "Ella Langley - Choosin' Texas",
     "Elvis Presley - Can’t Help Falling in Love",
     "Etta James - At Last",
+    "Fall Out Boy - Sugar We're Going Down",
     "Fleetwood Mac - Dreams",
     "Fleetwood Mac - Landslide",
     "Fleetwood Mac - Never Going Back Again",
@@ -79,13 +82,13 @@
     "Jason Mraz - Lucky",
     "Jason Mraz - I Won't Give Up",
     "Jeff Buckley - Hallelujah",
+    "Jimmy Eat World - The Middle",
     "John Denver - Take Me Home, Country Roads",
     "John Denver - Annie’s Song",
     "John Mayer - Gravity",
     "John Mayer - Daughters",
     "Journey - Don't Stop Believin'",
     "Justin Bieber - Daisies",
-    "JVKE - Golden Hour",
     "Lady Gaga - I'll Always Remember Us This Way",
     "Led Zeppelin - Tangerine",
     "Lionel Richie - All Night Long",
@@ -112,6 +115,7 @@
     "Queen - Crazy Little Thing Called Love",
     "Radiohead - High and Dry",
     "Santana - Primavera",
+    "Semisonic - Closing Time",
     "Shaboozey - A Bar Song (Tipsy)",
     "Simon & Garfunkel - Feelin’ Groovy",
     "Stan Getz - The Girl From Ipanema",
@@ -122,12 +126,14 @@
     "Supertramp - Give a Little Bit",
     "Taylor Swift - Cruel Summer",
     "Taylor Swift - Shake It Off",
+    "Taylor Swift - Lover",
     "The Cranberries - Dreams",
     "The Jackson 5 - I Want You Back",
     "The Killers - Mr. Brightside",
     "The Shins - New Slang",
     "The Temptations - My Girl",
     "Tracy Chapman - Fast Car",
+    "Train - Drops of Jupiter",
     "UB40 - Red Red Wine",
     "Van Morrison - Brown Eyed Girl",
     "Vance Joy - Riptide",
@@ -139,10 +145,9 @@
   ];
 
   var VIDEOS = [
-    { id: "bnsnFK3bFfY", title: "Featured performance" },
-    { id: "yhg55GsYBlE", title: "Live from the islands" },
-    { id: "HjY4UFk6frw", title: "Sunset session" },
-    { id: "OoitcRFoGpk", title: "Beachside set" }
+    { id: "mMwBORjYdAQ", title: "Featured performance" },
+    { id: "UnUe4oiDbu0", title: "Live from the islands" },
+    { id: "ixl3R1kOLjA", title: "Sunset session" }
   ];
 
   function parseSong(raw, i) {
