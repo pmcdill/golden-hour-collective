@@ -331,7 +331,7 @@
       "Event date: " + (fDate || "") + "\n\n" +
       (fMsg || "")
     );
-    window.location.href = "mailto:hello@alohasunsetsmaui.com?subject=" + subject + "&body=" + body;
+    window.location.href = "mailto:aloha@mauiwedding.band?subject=" + subject + "&body=" + body;
   });
 
   /* ---------- Footer year ---------- */
