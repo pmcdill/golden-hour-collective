@@ -385,6 +385,17 @@
       });
   });
 
+  /* ---------- Event date placeholder (always 6 months out) ---------- */
+  var dateInput = document.getElementById("fDate");
+  if (dateInput) {
+    var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    var now = new Date();
+    var m = now.getMonth() + 6;
+    var y = now.getFullYear() + Math.floor(m / 12);
+    m = ((m % 12) + 12) % 12;
+    dateInput.placeholder = "e.g. " + MONTHS[m] + " " + y;
+  }
+
   /* ---------- Footer year ---------- */
   document.getElementById("footerYear").textContent = "© " + new Date().getFullYear() + " Ocean Tones Collective";
 })();
