@@ -160,6 +160,7 @@
   var ALL_SONGS = RAW.map(parseSong);
 
   /* ---------- Song list + genre filter ---------- */
+  var COLLAPSED_H = 620;
   var activeGenre = "all";
   var songsExpanded = false;
   var chipsEl = document.getElementById("genreChips");
@@ -168,80 +169,158 @@
   var fadeEl = document.getElementById("songFade");
   var expandEl = document.getElementById("songExpand");
   var viewAllBtn = document.getElementById("viewAllBtn");
+  var rowEls = [];
+  var filterBusy = false;
+  var pendingGenre = null;
 
-  function renderChips() {
-    chipsEl.innerHTML = "";
+  function inGenre(el, g) { return g === "all" || el.getAttribute("data-genre") === g; }
+
+  function buildChips() {
     GENRE_DEFS.forEach(function (def) {
       var key = def[0], label = def[1];
       var btn = document.createElement("button");
       btn.type = "button";
       btn.textContent = label;
+      btn.setAttribute("data-key", key);
       if (key === activeGenre) btn.classList.add("active");
-      btn.addEventListener("click", function () {
-        activeGenre = key;
-        songsExpanded = false;
-        renderChips();
-        renderSongs();
-      });
+      btn.addEventListener("click", function () { selectGenre(key); });
       chipsEl.appendChild(btn);
     });
   }
 
-  function renderSongs() {
-    var filtered = activeGenre === "all" ? ALL_SONGS : ALL_SONGS.filter(function (s) { return s.genre === activeGenre; });
-    listEl.innerHTML = "";
-    filtered.forEach(function (song, i) {
+  function buildRows() {
+    ALL_SONGS.forEach(function (song) {
       var row = document.createElement("div");
       row.className = "song-row";
-      var num = String(i + 1).padStart(2, "0");
+      row.setAttribute("data-genre", song.genre);
       row.innerHTML =
-        '<span class="song-num">' + num + '</span>' +
+        '<span class="song-num"></span>' +
         '<span><span class="song-title"></span><span class="song-artist"></span></span>';
       row.querySelector(".song-title").textContent = song.title;
       row.querySelector(".song-artist").textContent = song.artist;
       listEl.appendChild(row);
+      rowEls.push(row);
     });
+  }
 
+  function renumber() {
+    var n = 0;
+    rowEls.forEach(function (el) {
+      if (!el.hidden) { n++; el.querySelector(".song-num").textContent = String(n).padStart(2, "0"); }
+    });
+    return n;
+  }
+
+  function updateCount(visible) {
     var activeLabel = (GENRE_DEFS.find(function (g) { return g[0] === activeGenre; }) || ["all", "All Songs"])[1];
     countEl.textContent = (activeGenre === "all"
       ? ALL_SONGS.length + " songs and growing"
-      : filtered.length + " " + activeLabel + " song" + (filtered.length === 1 ? "" : "s")
+      : visible + " " + activeLabel + " song" + (visible === 1 ? "" : "s")
     ) + "  ·  New requests welcome — we learn special songs for your first dance.";
-
-    updateCollapse();
   }
 
-  // Collapse the full "All Songs" list to a fixed height with a View all toggle.
-  // Filtered genres are shorter, so they always show in full with no button.
-  function updateCollapse() {
+  // Natural height of the full list (the collapsed list is height-capped, so measure it uncapped).
+  function fullHeight() {
+    var prev = listEl.style.maxHeight, t = listEl.style.transition;
+    listEl.style.transition = "none";
+    listEl.style.maxHeight = "none";
+    var h = listEl.offsetHeight;
+    listEl.style.maxHeight = prev;
+    void listEl.offsetHeight;
+    listEl.style.transition = t;
+    return h;
+  }
+
+  // Snap the collapse state with no animation. The View all button only shows on "All Songs".
+  function setCollapseNow() {
     var isAll = activeGenre === "all";
-    if (isAll && !songsExpanded) {
-      listEl.classList.add("collapsed");
-      fadeEl.hidden = false;
-      expandEl.hidden = false;
-      viewAllBtn.textContent = "View all";
-    } else if (isAll && songsExpanded) {
+    var t = listEl.style.transition;
+    listEl.style.transition = "none";
+    if (!isAll) {
       listEl.classList.remove("collapsed");
-      fadeEl.hidden = true;
-      expandEl.hidden = false;
-      viewAllBtn.textContent = "Show less";
-    } else {
-      listEl.classList.remove("collapsed");
+      listEl.style.maxHeight = "";
       fadeEl.hidden = true;
       expandEl.hidden = true;
+    } else {
+      listEl.classList.add("collapsed");
+      listEl.style.maxHeight = songsExpanded ? "none" : COLLAPSED_H + "px";
+      fadeEl.hidden = false;
+      fadeEl.classList.toggle("gone", songsExpanded);
+      expandEl.hidden = false;
+      viewAllBtn.textContent = songsExpanded ? "Show less" : "View all";
     }
+    void listEl.offsetHeight;
+    listEl.style.transition = t;
+  }
+
+  function selectGenre(key) {
+    if (filterBusy) { pendingGenre = key; return; }
+    if (key === activeGenre) return;
+    filterBusy = true;
+    activeGenre = key;
+    songsExpanded = false;
+    Array.prototype.forEach.call(chipsEl.children, function (c) {
+      c.classList.toggle("active", c.getAttribute("data-key") === key);
+    });
+
+    var keep = rowEls.filter(function (el) { return !el.hidden && inGenre(el, key); });
+    var leave = rowEls.filter(function (el) { return !el.hidden && !inGenre(el, key); });
+    var enter = rowEls.filter(function (el) { return el.hidden && inGenre(el, key); });
+    leave.forEach(function (el) { el.classList.add("out"); });
+
+    setTimeout(function () {
+      var first = new Map();
+      keep.forEach(function (el) { first.set(el, el.getBoundingClientRect()); });
+      leave.forEach(function (el) { el.hidden = true; el.classList.remove("out"); });
+      enter.forEach(function (el) { el.hidden = false; el.classList.add("pre"); });
+      var visible = renumber();
+      updateCount(visible);
+      setCollapseNow();
+      keep.forEach(function (el) {
+        var a = first.get(el), b = el.getBoundingClientRect();
+        var dx = a.left - b.left, dy = a.top - b.top;
+        if (dx || dy) { el.style.transition = "none"; el.style.transform = "translate(" + dx + "px," + dy + "px)"; }
+      });
+      void listEl.offsetWidth;
+      keep.forEach(function (el) { el.style.transition = ""; el.style.transform = ""; });
+      enter.forEach(function (el, i) {
+        el.style.transitionDelay = Math.min(i * 30, 420) + "ms";
+        requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.remove("pre"); }); });
+      });
+      setTimeout(function () {
+        enter.forEach(function (el) { el.style.transitionDelay = ""; });
+        filterBusy = false;
+        if (pendingGenre !== null) { var k = pendingGenre; pendingGenre = null; selectGenre(k); }
+      }, 900);
+    }, leave.length ? 190 : 0);
   }
 
   viewAllBtn.addEventListener("click", function () {
     songsExpanded = !songsExpanded;
-    updateCollapse();
-    if (!songsExpanded) {
+    fadeEl.classList.toggle("gone", songsExpanded);
+    viewAllBtn.textContent = songsExpanded ? "Show less" : "View all";
+    if (songsExpanded) {
+      listEl.style.maxHeight = fullHeight() + "px";
+      var done = function (e) {
+        if (e.propertyName !== "max-height") return;
+        listEl.removeEventListener("transitionend", done);
+        if (songsExpanded) listEl.style.maxHeight = "none";
+      };
+      listEl.addEventListener("transitionend", done);
+    } else {
+      listEl.style.transition = "none";
+      listEl.style.maxHeight = listEl.offsetHeight + "px";
+      void listEl.offsetHeight;
+      listEl.style.transition = "";
+      listEl.style.maxHeight = COLLAPSED_H + "px";
       document.getElementById("songs").scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
 
-  renderChips();
-  renderSongs();
+  buildChips();
+  buildRows();
+  updateCount(renumber());
+  setCollapseNow();
 
   /* ---------- Video carousel ---------- */
   var activeVideo = 0;
@@ -249,9 +328,10 @@
   var dotsEl = document.getElementById("videoDots");
   var prevBtn = document.getElementById("prevVideo");
   var nextBtn = document.getElementById("nextVideo");
+  var dotBtns = [];
+  var swapTimer;
 
-  function renderDots() {
-    dotsEl.innerHTML = "";
+  function buildDots() {
     VIDEOS.forEach(function (v, i) {
       var dot = document.createElement("button");
       dot.type = "button";
@@ -259,25 +339,75 @@
       if (i === activeVideo) dot.classList.add("active");
       dot.addEventListener("click", function () { goToVideo(i); });
       dotsEl.appendChild(dot);
+      dotBtns.push(dot);
     });
   }
 
   function goToVideo(i) {
     var n = VIDEOS.length;
-    activeVideo = (i + n) % n;
+    var next = (i + n) % n;
+    if (next === activeVideo) return;
+    activeVideo = next;
+    dotBtns.forEach(function (d, k) { d.classList.toggle("active", k === activeVideo); });
     var v = VIDEOS[activeVideo];
-    mainVideo.src = "https://www.youtube.com/embed/" + v.id + "?rel=0";
-    mainVideo.title = v.title;
-    renderDots();
+    mainVideo.classList.add("swap");
+    clearTimeout(swapTimer);
+    swapTimer = setTimeout(function () {
+      var reveal = function () { mainVideo.classList.remove("swap"); };
+      mainVideo.addEventListener("load", reveal, { once: true });
+      mainVideo.src = "https://www.youtube.com/embed/" + v.id + "?rel=0";
+      mainVideo.title = v.title;
+      setTimeout(reveal, 2000);
+    }, 280);
   }
 
   prevBtn.addEventListener("click", function () { goToVideo(activeVideo - 1); });
   nextBtn.addEventListener("click", function () { goToVideo(activeVideo + 1); });
-  renderDots();
+  buildDots();
 
   /* ---------- Nav scroll-spy ---------- */
   var navLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav]"));
   var sectionIds = navLinks.map(function (a) { return a.getAttribute("data-nav"); });
+
+  var siteHeader = document.querySelector(".site-header");
+  var navLinksEl = document.getElementById("navLinks");
+  var navInd = navLinksEl ? navLinksEl.querySelector(".nav-ind") : null;
+  var indShown = false;
+  var hoverLink = null;
+
+  function placeInd(a) {
+    if (!navInd) return;
+    if (!a) { navInd.classList.remove("show"); indShown = false; return; }
+    var set = function () {
+      navInd.style.setProperty("--x", a.offsetLeft + "px");
+      navInd.style.setProperty("--w", a.offsetWidth + "px");
+      navInd.style.setProperty("--y", (a.offsetTop + a.offsetHeight - 1.5) + "px");
+    };
+    if (!indShown) {
+      navInd.classList.add("snap");
+      set();
+      void navInd.offsetWidth;
+      navInd.classList.remove("snap");
+      navInd.classList.add("show");
+      indShown = true;
+    } else {
+      set();
+    }
+  }
+  function currentLink() {
+    for (var i = 0; i < navLinks.length; i++) if (navLinks[i].classList.contains("active")) return navLinks[i];
+    return null;
+  }
+  function syncInd() { placeInd(hoverLink || currentLink()); }
+
+  navLinks.forEach(function (a) {
+    a.addEventListener("mouseenter", function () { hoverLink = a; syncInd(); });
+    a.addEventListener("focus", function () { hoverLink = a; syncInd(); });
+    a.addEventListener("blur", function () { hoverLink = null; syncInd(); });
+  });
+  if (navLinksEl) navLinksEl.addEventListener("mouseleave", function () { hoverLink = null; syncInd(); });
+  window.addEventListener("resize", syncInd);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncInd);
 
   function onScroll() {
     var mid = window.innerHeight * 0.35;
@@ -291,6 +421,8 @@
     navLinks.forEach(function (a) {
       a.classList.toggle("active", a.getAttribute("data-nav") === current);
     });
+    if (siteHeader) siteHeader.classList.toggle("compact", window.scrollY > 24);
+    syncInd();
   }
 
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -351,9 +483,11 @@
       _captcha: "false"
     };
 
-    var originalLabel = submitBtn.textContent;
+    if (submitBtn.classList.contains("loading") || submitBtn.classList.contains("done")) return;
     submitBtn.disabled = true;
-    submitBtn.textContent = "Sending…";
+    submitBtn.setAttribute("aria-busy", "true");
+    submitBtn.classList.remove("err");
+    submitBtn.classList.add("loading");
     setStatus("", null);
 
     fetch(FORM_ENDPOINT, {
@@ -372,18 +506,70 @@
         if (ok) {
           form.reset();
           setStatus("Thanks! Your inquiry is on its way — we'll be in touch soon.", "ok");
+          submitBtn.classList.add("done");
+          setTimeout(function () { submitBtn.classList.remove("done"); }, 3400);
         } else {
           setStatus("Something went wrong sending your inquiry. Please email us directly at aloha@mauiwedding.band.", "error");
+          submitBtn.classList.add("err");
         }
       })
       .catch(function () {
         setStatus("Couldn't send right now. Please email us directly at aloha@mauiwedding.band.", "error");
+        submitBtn.classList.add("err");
       })
       .then(function () {
+        submitBtn.classList.remove("loading");
+        submitBtn.removeAttribute("aria-busy");
         submitBtn.disabled = false;
-        submitBtn.textContent = originalLabel;
       });
   });
+
+  /* ---------- Motion: scroll reveal, card tilt, hero parallax ---------- */
+  var reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var finePointer = !!(window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches);
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); revealIO.unobserve(en.target); }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -6% 0px" });
+    revealEls.forEach(function (el) { revealIO.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  if (finePointer && !reduceMotion) {
+    Array.prototype.slice.call(document.querySelectorAll(".testimonial-card")).forEach(function (card) {
+      var stars = card.querySelector(".stars");
+      card.addEventListener("pointerenter", function () {
+        card.classList.add("live");
+        if (stars) stars.classList.toggle("alt");
+      });
+      card.addEventListener("pointermove", function (e) {
+        var r = card.getBoundingClientRect();
+        var px = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+        var py = Math.max(0, Math.min(1, (e.clientY - r.top) / r.height));
+        card.style.transform = "rotateX(" + ((0.5 - py) * 10).toFixed(2) + "deg) rotateY(" + ((px - 0.5) * 12).toFixed(2) + "deg)";
+        card.style.setProperty("--gx", (px * 100).toFixed(0) + "%");
+        card.style.setProperty("--gy", (py * 100).toFixed(0) + "%");
+      });
+      card.addEventListener("pointerleave", function () { card.classList.remove("live"); card.style.transform = ""; });
+    });
+
+    var heroPhoto = document.querySelector(".hero-right");
+    if (heroPhoto) {
+      heroPhoto.addEventListener("pointermove", function (e) {
+        var r = heroPhoto.getBoundingClientRect();
+        heroPhoto.style.setProperty("--mx", ((e.clientX - r.left) / r.width - 0.5).toFixed(3));
+        heroPhoto.style.setProperty("--my", ((e.clientY - r.top) / r.height - 0.5).toFixed(3));
+      });
+      heroPhoto.addEventListener("pointerleave", function () {
+        heroPhoto.style.setProperty("--mx", 0);
+        heroPhoto.style.setProperty("--my", 0);
+      });
+    }
+  }
 
   /* ---------- Event date placeholder (always 6 months out) ---------- */
   var dateInput = document.getElementById("fDate");

@@ -10,7 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=11">
+<script>document.documentElement.className += " js";</script>
+<link rel="stylesheet" href="style.css?v=12">
 </head>
 <body>
 
@@ -25,10 +26,11 @@
       </button>
       <div class="nav-right" id="navMenu">
         <div class="nav-links" id="navLinks">
-          <a href="#about" data-nav="about">About<span class="nav-underline"></span></a>
-          <a href="#watch" data-nav="watch">Watch<span class="nav-underline"></span></a>
-          <a href="#songs" data-nav="songs">Songs<span class="nav-underline"></span></a>
-          <a href="#words" data-nav="words">Reviews<span class="nav-underline"></span></a>
+          <span class="nav-ind" aria-hidden="true"></span>
+          <a href="#about" data-nav="about">About</a>
+          <a href="#watch" data-nav="watch">Watch</a>
+          <a href="#songs" data-nav="songs">Songs</a>
+          <a href="#words" data-nav="words">Reviews</a>
         </div>
         <a href="#contact" class="btn btn-primary btn-nav">Request a date</a>
       </div>
@@ -39,11 +41,11 @@
   <section id="top" class="hero">
     <div class="hero-left">
       <div class="eyebrow">Maui, Hawai‘i &nbsp;·&nbsp; Weddings &amp; Events</div>
-      <h1 class="hero-title">Ocean Tones<br>Collective</h1>
+      <h1 class="hero-title"><span class="ln"><span style="--i:0">Ocean Tones</span></span><span class="ln"><span style="--i:1">Collective</span></span></h1>
       <h2 class="hero-subtitle">Island vibes for all occasions</h2>
       <div class="hero-copy">From a barefoot ceremony on the sand to a black-tie reception, we read the room and shape the night: tender and acoustic for vows, full and rhythmic when the dancing starts.</div>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Request a date</a>
+        <a href="#contact" class="btn btn-primary">Request a date <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a href="#watch" class="btn btn-outline">Watch us play</a>
       </div>
       <div class="hero-tags">
@@ -55,7 +57,8 @@
         <span>Live Band + DJ Package</span>
       </div>
     </div>
-    <div class="hero-right" style="background-image: url('assets/band-portrait.jpg');">
+    <div class="hero-right">
+      <div class="hero-parallax"><div class="hero-photo" style="background-image: url('assets/band-portrait.jpg');"></div></div>
       <div class="hero-right-fade"></div>
     </div>
   </section>
@@ -63,10 +66,10 @@
   <!-- ABOUT -->
   <section id="about" class="about">
     <div class="about-inner">
-      <div class="about-media">
+      <div class="about-media reveal">
         <img src="assets/band-foliage.jpg" alt="Ocean Tones Collective band portrait among tropical foliage">
       </div>
-      <div class="about-copy">
+      <div class="about-copy reveal" style="--d:1">
         <div class="eyebrow eyebrow-teal">Who we are</div>
         <h2 class="section-title section-title-light">Your premier island event band</h2>
         <p class="lede lede-light">A collective of some of Maui’s most established musicians, tailored entirely to your vision. Choose from a soulful acoustic duo, a dynamic four-piece band, or a high-energy ensemble with horns.<span class="lede-emphasis"><strong>Can’t decide between a band or a DJ?</strong> Have both with our fully integrated live music and DJ packages. Let’s bring your celebration to life.</span></p>
@@ -77,11 +80,11 @@
   <!-- WATCH -->
   <section id="watch" class="watch">
     <div class="section-inner">
-      <div class="section-heading">
+      <div class="section-heading reveal">
         <div class="eyebrow">Hear for yourself</div>
         <h2 class="section-title">Live from the islands</h2>
       </div>
-      <div class="watch-player-wrap">
+      <div class="watch-player-wrap reveal" style="--d:1">
         <button type="button" id="prevVideo" class="video-arrow video-arrow-left" aria-label="Previous video">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 5 8 12 15 19"></polyline></svg>
         </button>
@@ -102,13 +105,13 @@
   <!-- SONG LIST -->
   <section id="songs" class="songs">
     <div class="section-inner">
-      <div class="songs-heading">
+      <div class="songs-heading reveal">
         <div class="eyebrow eyebrow-teal">The repertoire</div>
         <h2 class="section-title section-title-light">The songs that move a room.</h2>
         <p class="lede lede-light">Marley to Mraz, Stevie to Styles, a little Hawaiian, a little bossa nova — familiar and warm. Select a genre to filter the list.</p>
       </div>
-      <div class="genre-chips" id="genreChips"></div>
-      <div class="song-list-wrap" id="songListWrap">
+      <div class="genre-chips reveal" id="genreChips" style="--d:1"></div>
+      <div class="song-list-wrap reveal" id="songListWrap" style="--d:2">
         <div class="song-list" id="songList"></div>
         <div class="song-fade" id="songFade" hidden></div>
       </div>
@@ -121,33 +124,39 @@
 
   <!-- TESTIMONIALS -->
   <section id="words" class="testimonials">
-    <div class="section-heading">
+    <div class="section-heading reveal">
       <div class="eyebrow">Kind words</div>
       <h2 class="section-title">Don’t just take<br>our word for it</h2>
     </div>
     <div class="testimonial-grid">
+      <div class="tilt-wrap reveal" style="--d:0">
       <figure class="testimonial-card">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="5 out of 5 stars"><span style="--i:0">★</span><span style="--i:1">★</span><span style="--i:2">★</span><span style="--i:3">★</span><span style="--i:4">★</span></div>
         <blockquote>“…lively, fun, and played a wide variety of genres”</blockquote>
         <figcaption>— Jessica</figcaption>
       </figure>
+      </div>
+      <div class="tilt-wrap reveal" style="--d:1">
       <figure class="testimonial-card">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="5 out of 5 stars"><span style="--i:0">★</span><span style="--i:1">★</span><span style="--i:2">★</span><span style="--i:3">★</span><span style="--i:4">★</span></div>
         <blockquote>“I've seen a lot of live music in my day, and sometimes you encounter voices that just go together perfectly. They have that.”</blockquote>
         <figcaption>— Steve</figcaption>
       </figure>
+      </div>
+      <div class="tilt-wrap reveal" style="--d:2">
       <figure class="testimonial-card">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="5 out of 5 stars"><span style="--i:0">★</span><span style="--i:1">★</span><span style="--i:2">★</span><span style="--i:3">★</span><span style="--i:4">★</span></div>
         <blockquote>“They literally played our favorite song at the exact perfect moment and it couldn't have been more magical”</blockquote>
         <figcaption>— Alexis</figcaption>
       </figure>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact" style="background-image: linear-gradient(rgba(36,31,56,0.62), rgba(36,31,56,0.72)), url('assets/guitar-sing.jpg');">
     <div class="contact-inner">
-      <div class="contact-copy">
+      <div class="contact-copy reveal">
         <div class="eyebrow eyebrow-teal">Let’s talk</div>
         <h2 class="section-title section-title-light">Tell us about<br>your day.</h2>
         <p class="lede lede-contact">Share your date and venue and we’ll send availability, packages, and answer any questions. We play across Maui and the neighbor islands.</p>
@@ -157,7 +166,7 @@
           <a href="https://www.youtube.com/@oceantonescollective" target="_blank" rel="noopener"><svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"></rect><path d="M10.2 9.3l5 2.7-5 2.7z" fill="currentColor" stroke="none"></path></svg>YouTube channel</a>
         </div>
       </div>
-      <form class="contact-form" id="inquiryForm">
+      <form class="contact-form reveal" id="inquiryForm" style="--d:1">
         <div class="form-grid">
           <input type="text" id="fHoney" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-field">
@@ -178,7 +187,10 @@
             <label for="fMsg">Tell us about your event</label>
             <textarea id="fMsg" name="message" rows="4" placeholder="Venue, type of event, what you're imagining…"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-submit">Send inquiry</button>
+          <button type="submit" class="btn btn-primary btn-submit"><span class="lbl">Send inquiry</span>
+            <svg class="spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9"/></svg>
+            <svg class="chk" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+          </button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
         </div>
       </form>
@@ -194,6 +206,6 @@
     </div>
   </footer>
 
-<script src="script.js?v=5"></script>
+<script src="script.js?v=6"></script>
 </body>
 </html>
