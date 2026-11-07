@@ -335,7 +335,7 @@
   var prefersReducedMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
   function embedUrl(id, play) {
-    return "https://www.youtube.com/embed/" + id + "?rel=0" + (play ? "&autoplay=1&mute=1&playsinline=1" : "");
+    return "https://www.youtube.com/embed/" + id + "?rel=0&cc_load_policy=0" + (play ? "&autoplay=1&mute=1&playsinline=1" : "");
   }
 
   function loadVideo(v, play) {
