@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>document.documentElement.className += " js";</script>
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=14">
 </head>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -184,7 +184,13 @@
             </div>
             <div class="form-field">
               <label for="fDate">Event date</label>
-              <input type="text" id="fDate" name="date" placeholder="e.g. June 2026">
+              <div class="date-wrap">
+                <input type="text" id="fDate" name="date" placeholder="e.g. June 2026" autocomplete="off">
+                <button type="button" class="date-btn" id="dateBtn" aria-label="Open calendar to pick a date">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg>
+                </button>
+                <input type="date" id="fDateNative" class="date-native" tabindex="-1" aria-hidden="true">
+              </div>
             </div>
           </div>
           <div class="form-field">
@@ -210,6 +216,6 @@
     </div>
   </footer>
 
-<script src="script.js?v=6"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>

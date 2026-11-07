@@ -571,6 +571,28 @@
     }
   }
 
+  /* ---------- Event date: calendar button fills the text field ---------- */
+  var dateBtn = document.getElementById("dateBtn");
+  var dateNative = document.getElementById("fDateNative");
+  if (dateBtn && dateNative) {
+    var pad2 = function (n) { return String(n).padStart(2, "0"); };
+    var now0 = new Date();
+    dateNative.min = now0.getFullYear() + "-" + pad2(now0.getMonth() + 1) + "-" + pad2(now0.getDate());
+    dateBtn.addEventListener("click", function () {
+      try {
+        if (dateNative.showPicker) { dateNative.showPicker(); }
+        else { dateNative.focus(); dateNative.click(); }
+      } catch (err) { dateNative.focus(); dateNative.click(); }
+    });
+    dateNative.addEventListener("change", function () {
+      var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateNative.value);
+      if (!m) return;
+      var d = new Date(+m[1], +m[2] - 1, +m[3]);
+      document.getElementById("fDate").value = d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+    });
+    form.addEventListener("reset", function () { dateNative.value = ""; });
+  }
+
   /* ---------- Event date placeholder (always 6 months out) ---------- */
   var dateInput = document.getElementById("fDate");
   if (dateInput) {
