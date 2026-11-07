@@ -695,3 +695,13 @@ a { color: inherit; }
   .js .reveal { opacity: 1; translate: none; }
   .btn-submit .spin { animation: none; }
 }
+
+/* Stack the hero on tablets and on phones held sideways, not just below 900px wide */
+@media (max-width: 1024px), (orientation: landscape) and (max-height: 520px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { min-height: 46vh; order: -1; }
+}
+@media (orientation: landscape) and (max-height: 520px) {
+  .hero-right { min-height: 62vh; }
+  .hero-photo { background-position: center 22%; }
+}
