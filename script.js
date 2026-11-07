@@ -330,6 +330,21 @@
   var nextBtn = document.getElementById("nextVideo");
   var dotBtns = [];
   var swapTimer;
+  var autoStarted = false;
+  // Autoplay is always muted (browsers only allow that), and skipped for visitors who prefer reduced motion.
+  var prefersReducedMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+  function embedUrl(id, play) {
+    return "https://www.youtube.com/embed/" + id + "?rel=0" + (play ? "&autoplay=1&mute=1&playsinline=1" : "");
+  }
+
+  function loadVideo(v, play) {
+    var reveal = function () { mainVideo.classList.remove("swap"); };
+    mainVideo.addEventListener("load", reveal, { once: true });
+    mainVideo.src = embedUrl(v.id, play);
+    mainVideo.title = v.title;
+    setTimeout(reveal, 2000);
+  }
 
   function buildDots() {
     VIDEOS.forEach(function (v, i) {
@@ -348,22 +363,35 @@
     var next = (i + n) % n;
     if (next === activeVideo) return;
     activeVideo = next;
+    autoStarted = true;
     dotBtns.forEach(function (d, k) { d.classList.toggle("active", k === activeVideo); });
     var v = VIDEOS[activeVideo];
     mainVideo.classList.add("swap");
     clearTimeout(swapTimer);
     swapTimer = setTimeout(function () {
-      var reveal = function () { mainVideo.classList.remove("swap"); };
-      mainVideo.addEventListener("load", reveal, { once: true });
-      mainVideo.src = "https://www.youtube.com/embed/" + v.id + "?rel=0";
-      mainVideo.title = v.title;
-      setTimeout(reveal, 2000);
+      loadVideo(v, !prefersReducedMotion);
     }, 280);
   }
 
   prevBtn.addEventListener("click", function () { goToVideo(activeVideo - 1); });
   nextBtn.addEventListener("click", function () { goToVideo(activeVideo + 1); });
   buildDots();
+
+  // Start the first video (muted) the first time the player is on screen.
+  var playerEl = document.querySelector(".watch-player");
+  if (playerEl && !prefersReducedMotion && "IntersectionObserver" in window) {
+    var autoIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        autoIO.disconnect();
+        if (autoStarted) return;
+        autoStarted = true;
+        mainVideo.classList.add("swap");
+        setTimeout(function () { loadVideo(VIDEOS[activeVideo], true); }, 280);
+      });
+    }, { threshold: 0.5 });
+    autoIO.observe(playerEl);
+  }
 
   /* ---------- Nav scroll-spy ---------- */
   var navLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav]"));
