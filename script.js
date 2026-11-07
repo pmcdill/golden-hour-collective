@@ -584,19 +584,6 @@
       });
       card.addEventListener("pointerleave", function () { card.classList.remove("live"); card.style.transform = ""; });
     });
-
-    var heroPhoto = document.querySelector(".hero-right");
-    if (heroPhoto) {
-      heroPhoto.addEventListener("pointermove", function (e) {
-        var r = heroPhoto.getBoundingClientRect();
-        heroPhoto.style.setProperty("--mx", ((e.clientX - r.left) / r.width - 0.5).toFixed(3));
-        heroPhoto.style.setProperty("--my", ((e.clientY - r.top) / r.height - 0.5).toFixed(3));
-      });
-      heroPhoto.addEventListener("pointerleave", function () {
-        heroPhoto.style.setProperty("--mx", 0);
-        heroPhoto.style.setProperty("--my", 0);
-      });
-    }
   }
 
   /* ---------- Event date: calendar button fills the text field ---------- */

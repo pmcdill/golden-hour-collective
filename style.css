@@ -596,16 +596,10 @@ a { color: inherit; }
 .hero-actions { animation: heroFade 1s ease 0.9s both; }
 .hero-tags { animation: heroFade 1s ease 1.05s both; }
 
-/* Hero photo: slow drift, plus a small pointer parallax on desktop */
+/* Hero photo: stays still */
 .hero-right { overflow: hidden; }
-.hero-parallax {
-  position: absolute;
-  inset: -4%;
-  transform: translate3d(calc(var(--mx, 0) * -14px), calc(var(--my, 0) * -9px), 0);
-  transition: transform 0.6s var(--ease);
-}
-.hero-photo { position: absolute; inset: 0; background-size: cover; background-position: center; animation: kb 18s ease-in-out infinite alternate; }
-@keyframes kb { from { transform: scale(1); } to { transform: scale(1.07); } }
+.hero-parallax { position: absolute; inset: 0; }
+.hero-photo { position: absolute; inset: 0; background-size: cover; background-position: center; }
 
 /* Buttons */
 .btn-primary { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 9px; transition: background 0.25s ease, transform 0.2s var(--ease); }
@@ -691,7 +685,6 @@ a { color: inherit; }
 /* Respect reduced-motion settings */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-  .hero-photo { animation: none; }
   .js .reveal { opacity: 1; translate: none; }
   .btn-submit .spin { animation: none; }
 }
