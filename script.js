@@ -448,8 +448,8 @@
     });
   }
 
-  /* ---------- Contact form (FormSubmit AJAX) ---------- */
-  var FORM_ENDPOINT = "https://formsubmit.co/ajax/ae9013f98139172fdb408ac3ad6adb61";
+  /* ---------- Contact form (sent through our own /api/inquiry) ---------- */
+  var FORM_ENDPOINT = "/api/inquiry";
   var form = document.getElementById("inquiryForm");
   var formStatus = document.getElementById("formStatus");
   var submitBtn = form.querySelector(".btn-submit");
@@ -471,17 +471,18 @@
       return;
     }
 
-    var email = document.getElementById("fEmail").value;
+    var email = document.getElementById("fEmail").value.trim();
     var payload = {
-      name: document.getElementById("fName").value,
+      name: document.getElementById("fName").value.trim(),
       email: email,
-      date: document.getElementById("fDate").value,
-      message: document.getElementById("fMsg").value,
-      _subject: "New booking inquiry — Ocean Tones Collective",
-      _replyto: email,
-      _template: "table",
-      _captcha: "false"
+      date: document.getElementById("fDate").value.trim(),
+      message: document.getElementById("fMsg").value.trim()
     };
+
+    if (!payload.name || !payload.message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus("Please add your name, a valid email and a short message so we can reply.", "error");
+      return;
+    }
 
     if (submitBtn.classList.contains("loading") || submitBtn.classList.contains("done")) return;
     submitBtn.disabled = true;
@@ -502,14 +503,17 @@
         );
       })
       .then(function (result) {
-        var ok = result.ok && (result.data.success === "true" || result.data.success === true);
+        var ok = result.ok && result.data.ok === true;
+        if (!ok) console.warn("Inquiry not sent:", result.data);
         if (ok) {
           form.reset();
           setStatus("Thanks! Your inquiry is on its way — we'll be in touch soon.", "ok");
           submitBtn.classList.add("done");
           setTimeout(function () { submitBtn.classList.remove("done"); }, 3400);
         } else {
-          setStatus("Something went wrong sending your inquiry. Please email us directly at aloha@mauiwedding.band.", "error");
+          setStatus(result.data && result.data.reason === "invalid"
+            ? "Please add your name, a valid email and a short message so we can reply."
+            : "Something went wrong sending your inquiry. Please email us directly at aloha@mauiwedding.band.", "error");
           submitBtn.classList.add("err");
         }
       })
