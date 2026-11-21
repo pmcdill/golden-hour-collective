@@ -1,0 +1,644 @@
+{
+  "songs": [
+    {
+      "artist": "Al Green",
+      "title": "Let’s Stay Together",
+      "genre": "soul"
+    },
+    {
+      "artist": "Alex Warren",
+      "title": "Ordinary",
+      "genre": "top40"
+    },
+    {
+      "artist": "Alicia Keys",
+      "title": "If I Ain’t Got You",
+      "genre": "soul"
+    },
+    {
+      "artist": "Amy Winehouse",
+      "title": "Valerie",
+      "genre": "soul"
+    },
+    {
+      "artist": "Arctic Monkeys",
+      "title": "Fluorescent Adolescent",
+      "genre": "dance"
+    },
+    {
+      "artist": "Aretha Franklin",
+      "title": "Respect",
+      "genre": "soul"
+    },
+    {
+      "artist": "Bahamas",
+      "title": "Lost in the Light",
+      "genre": "folk"
+    },
+    {
+      "artist": "The Beatles",
+      "title": "Here Comes the Sun",
+      "genre": "rock"
+    },
+    {
+      "artist": "The Beatles",
+      "title": "In My Life",
+      "genre": "rock"
+    },
+    {
+      "artist": "The Beatles",
+      "title": "Twist and Shout",
+      "genre": "rock"
+    },
+    {
+      "artist": "Benson Boone",
+      "title": "Beautiful Things",
+      "genre": "top40"
+    },
+    {
+      "artist": "Beyonce",
+      "title": "Love On Top",
+      "genre": "top40"
+    },
+    {
+      "artist": "Billie Eilish",
+      "title": "Birds of a Feather",
+      "genre": "top40"
+    },
+    {
+      "artist": "Blink-182",
+      "title": "All The Small Things",
+      "genre": "dance"
+    },
+    {
+      "artist": "Bob Marley",
+      "title": "Is This Love",
+      "genre": "latin"
+    },
+    {
+      "artist": "Bob Marley",
+      "title": "Stir it Up",
+      "genre": "latin"
+    },
+    {
+      "artist": "Bob Marley",
+      "title": "Three Little Birds",
+      "genre": "latin"
+    },
+    {
+      "artist": "Bob Marley",
+      "title": "Waiting in Vain",
+      "genre": "latin"
+    },
+    {
+      "artist": "Bobby McFerrin",
+      "title": "Don’t Worry, Be Happy",
+      "genre": "latin"
+    },
+    {
+      "artist": "Bon Iver",
+      "title": "Flume/Skinny Love",
+      "genre": "folk"
+    },
+    {
+      "artist": "Bon Jovi",
+      "title": "Living on a Prayer",
+      "genre": "dance"
+    },
+    {
+      "artist": "Bruno Mars",
+      "title": "That's What I Like",
+      "genre": "top40"
+    },
+    {
+      "artist": "Bruno Mars/Lady Gaga",
+      "title": "Die With A Smile",
+      "genre": "top40"
+    },
+    {
+      "artist": "Chappell Roan",
+      "title": "Pink Pony Club",
+      "genre": "top40"
+    },
+    {
+      "artist": "Chris Stapleton",
+      "title": "Tennessee Whiskey",
+      "genre": "rock"
+    },
+    {
+      "artist": "Coldplay",
+      "title": "Yellow",
+      "genre": "top40"
+    },
+    {
+      "artist": "Coldplay",
+      "title": "Green Eyes",
+      "genre": "top40"
+    },
+    {
+      "artist": "Cultura Profética",
+      "title": "La Complicidad",
+      "genre": "latin"
+    },
+    {
+      "artist": "Daft Punk",
+      "title": "Get Lucky",
+      "genre": "dance"
+    },
+    {
+      "artist": "Daniel Caesar/H.E.R.",
+      "title": "Best Part",
+      "genre": "soul"
+    },
+    {
+      "artist": "Dave Matthews Band",
+      "title": "Satellite",
+      "genre": "rock"
+    },
+    {
+      "artist": "Dave Matthews Band",
+      "title": "Crash Into Me",
+      "genre": "rock"
+    },
+    {
+      "artist": "The Doobie Brothers",
+      "title": "Black Water",
+      "genre": "rock"
+    },
+    {
+      "artist": "Dua Lipa",
+      "title": "Levitating",
+      "genre": "top40"
+    },
+    {
+      "artist": "Eagles",
+      "title": "Take it Easy",
+      "genre": "rock"
+    },
+    {
+      "artist": "Eagles",
+      "title": "Hotel California",
+      "genre": "rock"
+    },
+    {
+      "artist": "Ed Sheeran",
+      "title": "Shape of You",
+      "genre": "top40"
+    },
+    {
+      "artist": "Ed Sheeran",
+      "title": "Thinking Out Loud",
+      "genre": "top40"
+    },
+    {
+      "artist": "Ed Sheeran",
+      "title": "Perfect",
+      "genre": "top40"
+    },
+    {
+      "artist": "Ella Langley",
+      "title": "Choosin' Texas",
+      "genre": "top40"
+    },
+    {
+      "artist": "Elvis Presley",
+      "title": "Can’t Help Falling in Love",
+      "genre": "rock"
+    },
+    {
+      "artist": "Etta James",
+      "title": "At Last",
+      "genre": "soul"
+    },
+    {
+      "artist": "Fall Out Boy",
+      "title": "Sugar We're Going Down",
+      "genre": "dance"
+    },
+    {
+      "artist": "Fleetwood Mac",
+      "title": "Dreams",
+      "genre": "rock"
+    },
+    {
+      "artist": "Fleetwood Mac",
+      "title": "Landslide",
+      "genre": "rock"
+    },
+    {
+      "artist": "Fleetwood Mac",
+      "title": "Never Going Back Again",
+      "genre": "rock"
+    },
+    {
+      "artist": "Frank Sinatra",
+      "title": "I’ve Got You Under My Skin",
+      "genre": "soul"
+    },
+    {
+      "artist": "Frank Sinatra",
+      "title": "Fly Me to the Moon",
+      "genre": "soul"
+    },
+    {
+      "artist": "Grateful Dead",
+      "title": "A Friend of the Devil",
+      "genre": "rock"
+    },
+    {
+      "artist": "Harry Styles",
+      "title": "As It Was",
+      "genre": "top40"
+    },
+    {
+      "artist": "John Cruz",
+      "title": "Island Style",
+      "genre": "folk"
+    },
+    {
+      "artist": "Dennis Kamakahi",
+      "title": "Wahine 'Ilikea",
+      "genre": "folk"
+    },
+    {
+      "artist": "Don Ho",
+      "title": "Tiny Bubbles",
+      "genre": "folk"
+    },
+    {
+      "artist": "Hapa",
+      "title": "Ka Uluwehi O Ke Kai",
+      "genre": "folk"
+    },
+    {
+      "artist": "Iz",
+      "title": "Over the Rainbow/What a Wonderful World",
+      "genre": "folk"
+    },
+    {
+      "artist": "Iz",
+      "title": "White Sandy Beach",
+      "genre": "folk"
+    },
+    {
+      "artist": "Incubus",
+      "title": "Drive",
+      "genre": "dance"
+    },
+    {
+      "artist": "Incubus",
+      "title": "Wish You Were Here",
+      "genre": "dance"
+    },
+    {
+      "artist": "Iron and Wine",
+      "title": "Such Great Heights",
+      "genre": "folk"
+    },
+    {
+      "artist": "Jack Johnson",
+      "title": "Belle",
+      "genre": "folk"
+    },
+    {
+      "artist": "Jack Johnson",
+      "title": "Better Together",
+      "genre": "folk"
+    },
+    {
+      "artist": "Jack Johnson",
+      "title": "Inaudible Melodies",
+      "genre": "folk"
+    },
+    {
+      "artist": "Jack Johnson",
+      "title": "Banana Pancakes",
+      "genre": "folk"
+    },
+    {
+      "artist": "James Taylor",
+      "title": "How Sweet It Is (To Be Loved By You)",
+      "genre": "soul"
+    },
+    {
+      "artist": "Jason Mraz",
+      "title": "I’m Yours",
+      "genre": "folk"
+    },
+    {
+      "artist": "Jason Mraz",
+      "title": "Lucky",
+      "genre": "folk"
+    },
+    {
+      "artist": "Jason Mraz",
+      "title": "I Won't Give Up",
+      "genre": "folk"
+    },
+    {
+      "artist": "Jeff Buckley",
+      "title": "Hallelujah",
+      "genre": "folk"
+    },
+    {
+      "artist": "Jimmy Eat World",
+      "title": "The Middle",
+      "genre": "dance"
+    },
+    {
+      "artist": "John Denver",
+      "title": "Take Me Home, Country Roads",
+      "genre": "rock"
+    },
+    {
+      "artist": "John Denver",
+      "title": "Annie’s Song",
+      "genre": "rock"
+    },
+    {
+      "artist": "John Mayer",
+      "title": "Gravity",
+      "genre": "folk"
+    },
+    {
+      "artist": "John Mayer",
+      "title": "Daughters",
+      "genre": "folk"
+    },
+    {
+      "artist": "Journey",
+      "title": "Don't Stop Believin'",
+      "genre": "rock"
+    },
+    {
+      "artist": "Justin Bieber",
+      "title": "Daisies",
+      "genre": "top40"
+    },
+    {
+      "artist": "Lady Gaga",
+      "title": "I'll Always Remember Us This Way",
+      "genre": "top40"
+    },
+    {
+      "artist": "Led Zeppelin",
+      "title": "Tangerine",
+      "genre": "rock"
+    },
+    {
+      "artist": "Lionel Richie",
+      "title": "All Night Long",
+      "genre": "dance"
+    },
+    {
+      "artist": "Los Cafres",
+      "title": "Tus Ojos",
+      "genre": "latin"
+    },
+    {
+      "artist": "Luis Fonsi",
+      "title": "Despacito",
+      "genre": "latin"
+    },
+    {
+      "artist": "The Lumineers",
+      "title": "Ho Hey",
+      "genre": "folk"
+    },
+    {
+      "artist": "Maren Morris / Hozier",
+      "title": "The Bones",
+      "genre": "top40"
+    },
+    {
+      "artist": "Maroon 5",
+      "title": "Sugar",
+      "genre": "top40"
+    },
+    {
+      "artist": "Marvin Gaye",
+      "title": "Ain't No Mountain High Enough",
+      "genre": "soul"
+    },
+    {
+      "artist": "Michael Jackson",
+      "title": "Rock With You",
+      "genre": "soul"
+    },
+    {
+      "artist": "Natalia Lafourcade",
+      "title": "Soledad y El Mar",
+      "genre": "latin"
+    },
+    {
+      "artist": "Neil Diamond",
+      "title": "Sweet Caroline",
+      "genre": "rock"
+    },
+    {
+      "artist": "Neil Young",
+      "title": "Harvest Moon",
+      "genre": "rock"
+    },
+    {
+      "artist": "Neil Young",
+      "title": "Heart of Gold",
+      "genre": "rock"
+    },
+    {
+      "artist": "Nirvana",
+      "title": "In Bloom",
+      "genre": "dance"
+    },
+    {
+      "artist": "Norah Jones",
+      "title": "Don't Know Why",
+      "genre": "soul"
+    },
+    {
+      "artist": "Oasis",
+      "title": "Wonderwall",
+      "genre": "dance"
+    },
+    {
+      "artist": "Old Crow Medicine Show",
+      "title": "Wagon Wheel",
+      "genre": "rock"
+    },
+    {
+      "artist": "Olivia Dean",
+      "title": "Dive",
+      "genre": "top40"
+    },
+    {
+      "artist": "Paul Simon",
+      "title": "Me and Julio Down by the Schoolyard",
+      "genre": "rock"
+    },
+    {
+      "artist": "Paul Simon",
+      "title": "You Can Call Me Al",
+      "genre": "rock"
+    },
+    {
+      "artist": "Pixies",
+      "title": "Where Is My Mind",
+      "genre": "dance"
+    },
+    {
+      "artist": "The Postal Service",
+      "title": "Such Great Heights",
+      "genre": "top40"
+    },
+    {
+      "artist": "Queen",
+      "title": "Crazy Little Thing Called Love",
+      "genre": "rock"
+    },
+    {
+      "artist": "Radiohead",
+      "title": "High and Dry",
+      "genre": "dance"
+    },
+    {
+      "artist": "Santana",
+      "title": "Primavera",
+      "genre": "latin"
+    },
+    {
+      "artist": "Semisonic",
+      "title": "Closing Time",
+      "genre": "dance"
+    },
+    {
+      "artist": "Shaboozey",
+      "title": "A Bar Song (Tipsy)",
+      "genre": "top40"
+    },
+    {
+      "artist": "Simon & Garfunkel",
+      "title": "Feelin’ Groovy",
+      "genre": "folk"
+    },
+    {
+      "artist": "Stan Getz",
+      "title": "The Girl From Ipanema",
+      "genre": "latin"
+    },
+    {
+      "artist": "Stephen Sanchez",
+      "title": "Until I Found You",
+      "genre": "top40"
+    },
+    {
+      "artist": "Stevie Wonder",
+      "title": "Signed, Sealed, Delivered (I'm Yours)",
+      "genre": "soul"
+    },
+    {
+      "artist": "Stevie Wonder",
+      "title": "Superstition",
+      "genre": "soul"
+    },
+    {
+      "artist": "Sublime",
+      "title": "Santeria",
+      "genre": "latin"
+    },
+    {
+      "artist": "Supertramp",
+      "title": "Give a Little Bit",
+      "genre": "rock"
+    },
+    {
+      "artist": "Taylor Swift",
+      "title": "Cruel Summer",
+      "genre": "top40"
+    },
+    {
+      "artist": "Taylor Swift",
+      "title": "Shake It Off",
+      "genre": "top40"
+    },
+    {
+      "artist": "Taylor Swift",
+      "title": "Lover",
+      "genre": "top40"
+    },
+    {
+      "artist": "The Cranberries",
+      "title": "Dreams",
+      "genre": "dance"
+    },
+    {
+      "artist": "The Jackson 5",
+      "title": "I Want You Back",
+      "genre": "soul"
+    },
+    {
+      "artist": "The Killers",
+      "title": "Mr. Brightside",
+      "genre": "dance"
+    },
+    {
+      "artist": "The Shins",
+      "title": "New Slang",
+      "genre": "folk"
+    },
+    {
+      "artist": "The Temptations",
+      "title": "My Girl",
+      "genre": "soul"
+    },
+    {
+      "artist": "Tracy Chapman",
+      "title": "Fast Car",
+      "genre": "folk"
+    },
+    {
+      "artist": "Train",
+      "title": "Drops of Jupiter",
+      "genre": "dance"
+    },
+    {
+      "artist": "UB40",
+      "title": "Red Red Wine",
+      "genre": "latin"
+    },
+    {
+      "artist": "Van Morrison",
+      "title": "Brown Eyed Girl",
+      "genre": "rock"
+    },
+    {
+      "artist": "Vance Joy",
+      "title": "Riptide",
+      "genre": "folk"
+    },
+    {
+      "artist": "Vicente Garcia",
+      "title": "Carmesi",
+      "genre": "latin"
+    },
+    {
+      "artist": "Walk the Moon",
+      "title": "Shut Up and Dance",
+      "genre": "dance"
+    },
+    {
+      "artist": "Weezer",
+      "title": "Island in the Sun",
+      "genre": "dance"
+    },
+    {
+      "artist": "Weezer",
+      "title": "Say It Ain't So",
+      "genre": "dance"
+    },
+    {
+      "artist": "Whitney Houston",
+      "title": "I Wanna Dance With Somebody",
+      "genre": "dance"
+    }
+  ]
+}

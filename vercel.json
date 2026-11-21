@@ -1,4 +1,9 @@
 {
+  "buildCommand": "node scripts/build.js",
+  "outputDirectory": "public",
+  "rewrites": [
+    { "source": "/admin", "destination": "/admin/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",

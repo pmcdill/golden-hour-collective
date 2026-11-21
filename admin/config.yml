@@ -1,0 +1,112 @@
+# Admin page for mauiwedding.band (Decap CMS). Tim logs in with GitHub at /admin.
+# Saving commits the change to the main branch and Vercel republishes the site.
+backend:
+  name: github
+  repo: pmcdill/golden-hour-collective
+  branch: main
+  base_url: https://mauiwedding.band
+  auth_endpoint: api/auth
+
+site_url: https://mauiwedding.band
+display_url: https://mauiwedding.band
+publish_mode: simple
+media_folder: assets/uploads
+public_folder: /assets/uploads
+locale: en
+
+collections:
+  - name: photos
+    label: Photos
+    files:
+      - name: photos
+        label: Home page photos
+        file: content/photos.json
+        fields:
+          - label: Top photo (beside the headline)
+            name: hero_image
+            widget: image
+            hint: Upload a sharp photo of the band. It is shown large, so use a high-quality image. Very large files are shrunk automatically.
+          - label: About photo
+            name: about_image
+            widget: image
+            hint: A landscape (wide) photo works best.
+          - label: About photo description
+            name: about_alt
+            widget: string
+            hint: A short description of the photo, for people using screen readers. For example, "The four band members standing in a garden".
+
+  - name: videos
+    label: Videos
+    files:
+      - name: videos
+        label: YouTube videos
+        file: content/videos.json
+        fields:
+          - label: Videos
+            label_singular: Video
+            name: videos
+            widget: list
+            summary: "{{fields.title}}"
+            hint: The first video loads first. Drag to change the order.
+            fields:
+              - label: Name
+                name: title
+                widget: string
+                hint: A short name, shown to screen readers and used for the dot buttons.
+              - label: YouTube link
+                name: url
+                widget: string
+                pattern: ['^(https?://)?(www\.|m\.)?(youtube\.com|youtu\.be)/.+', "Paste a full YouTube link, such as https://www.youtube.com/watch?v=..."]
+                hint: Copy the link from YouTube's Share button and paste it here.
+
+  - name: songs
+    label: Song list
+    files:
+      - name: songs
+        label: Song list
+        file: content/songs.json
+        fields:
+          - label: Songs
+            label_singular: Song
+            name: songs
+            widget: list
+            add_to_top: true
+            summary: "{{fields.title}} — {{fields.artist}}"
+            hint: The site sorts songs by artist automatically, so you can add a new song anywhere.
+            fields:
+              - { label: Song title, name: title, widget: string }
+              - { label: Artist, name: artist, widget: string }
+              - label: Genre
+                name: genre
+                widget: select
+                options:
+                  - { label: Top 40, value: top40 }
+                  - { label: "'80s–'00s Faves", value: dance }
+                  - { label: Soul & R&B, value: soul }
+                  - { label: Rock & Americana, value: rock }
+                  - { label: Reggae & Latin, value: latin }
+                  - { label: Folk & Hawaiian, value: folk }
+
+  - name: reviews
+    label: Reviews
+    files:
+      - name: reviews
+        label: Reviews
+        file: content/reviews.json
+        fields:
+          - label: Reviews
+            label_singular: Review
+            name: reviews
+            widget: list
+            add_to_top: true
+            summary: "{{fields.name}}: {{fields.quote}}"
+            hint: Each review shows five stars. Drag to change the order.
+            fields:
+              - label: What they said
+                name: quote
+                widget: text
+                hint: Type the words only. The site adds the quotation marks.
+              - label: Name
+                name: name
+                widget: string
+                hint: A first name or "Sarah & Mike".

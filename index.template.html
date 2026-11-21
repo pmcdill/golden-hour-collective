@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>document.documentElement.className += " js";</script>
-<link rel="stylesheet" href="style.css?v=15">
+<link rel="stylesheet" href="style.css?v={{HASH:style.css}}">
 </head>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -62,7 +62,7 @@
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-parallax"><div class="hero-photo" style="background-image: url('assets/band-portrait.jpg');"></div></div>
+      <div class="hero-parallax"><div class="hero-photo" style="background-image: url('{{HERO_IMAGE}}');"></div></div>
       <div class="hero-right-fade"></div>
     </div>
   </section>
@@ -71,7 +71,7 @@
   <section id="about" class="about">
     <div class="about-inner">
       <div class="about-media reveal">
-        <img src="assets/band-forest.jpg" alt="The four members of Ocean Tones Collective standing together in a lush tropical garden" width="2000" height="1334">
+        <img src="{{ABOUT_IMAGE}}" alt="{{ABOUT_ALT}}"{{ABOUT_DIMS}}>
       </div>
       <div class="about-copy reveal" style="--d:1">
         <div class="eyebrow eyebrow-teal">Who we are</div>
@@ -93,7 +93,7 @@
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 5 8 12 15 19"></polyline></svg>
         </button>
         <div class="watch-player">
-          <iframe id="mainVideo" src="https://www.youtube.com/embed/mMwBORjYdAQ?rel=0&cc_load_policy=0" title="Featured performance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe id="mainVideo" src="{{FIRST_VIDEO_SRC}}" title="{{FIRST_VIDEO_TITLE}}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         <button type="button" id="nextVideo" class="video-arrow video-arrow-right" aria-label="Next video">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 5 16 12 9 19"></polyline></svg>
@@ -133,27 +133,7 @@
       <h2 class="section-title">Don’t just take<br>our word for it</h2>
     </div>
     <div class="testimonial-grid">
-      <div class="tilt-wrap reveal" style="--d:0">
-      <figure class="testimonial-card">
-        <div class="stars" role="img" aria-label="5 out of 5 stars"><span style="--i:0">★</span><span style="--i:1">★</span><span style="--i:2">★</span><span style="--i:3">★</span><span style="--i:4">★</span></div>
-        <blockquote>“…lively, fun, and played a wide variety of genres”</blockquote>
-        <figcaption>— Jessica</figcaption>
-      </figure>
-      </div>
-      <div class="tilt-wrap reveal" style="--d:1">
-      <figure class="testimonial-card">
-        <div class="stars" role="img" aria-label="5 out of 5 stars"><span style="--i:0">★</span><span style="--i:1">★</span><span style="--i:2">★</span><span style="--i:3">★</span><span style="--i:4">★</span></div>
-        <blockquote>“I've seen a lot of live music in my day, and sometimes you encounter voices that just go together perfectly. They have that.”</blockquote>
-        <figcaption>— Steve</figcaption>
-      </figure>
-      </div>
-      <div class="tilt-wrap reveal" style="--d:2">
-      <figure class="testimonial-card">
-        <div class="stars" role="img" aria-label="5 out of 5 stars"><span style="--i:0">★</span><span style="--i:1">★</span><span style="--i:2">★</span><span style="--i:3">★</span><span style="--i:4">★</span></div>
-        <blockquote>“They literally played our favorite song at the exact perfect moment and it couldn't have been more magical”</blockquote>
-        <figcaption>— Alexis</figcaption>
-      </figure>
-      </div>
+{{REVIEWS}}
     </div>
   </section>
 
@@ -216,6 +196,7 @@
     </div>
   </footer>
 
-<script src="script.js?v=10"></script>
+<script>window.SITE = {{SITE_DATA}};</script>
+<script src="script.js?v={{HASH:script.js}}"></script>
 </body>
 </html>
