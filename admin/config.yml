@@ -4,11 +4,11 @@ backend:
   name: github
   repo: pmcdill/golden-hour-collective
   branch: main
-  base_url: https://mauiwedding.band
+  base_url: https://www.mauiwedding.band
   auth_endpoint: api/auth
 
-site_url: https://mauiwedding.band
-display_url: https://mauiwedding.band
+site_url: https://www.mauiwedding.band
+display_url: https://www.mauiwedding.band
 publish_mode: simple
 media_folder: assets/uploads
 public_folder: /assets/uploads

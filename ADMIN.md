@@ -1,15 +1,15 @@
 # Editing the website
 
 Tim can change the top photos, the YouTube videos, the song list and the reviews at
-**https://mauiwedding.band/admin**. He signs in with his GitHub account, edits in a simple
+**https://www.mauiwedding.band/admin**. He signs in with his GitHub account, edits in a simple
 form and clicks **Publish**. The site updates by itself in about a minute.
 
 ## One-time setup (Paul)
 
 1. **Create a GitHub OAuth App.** GitHub > Settings > Developer settings > OAuth Apps > New OAuth App.
    - Application name: `Ocean Tones admin`
-   - Homepage URL: `https://mauiwedding.band`
-   - Authorization callback URL: `https://mauiwedding.band/api/callback`
+   - Homepage URL: `https://www.mauiwedding.band`
+   - Authorization callback URL: `https://www.mauiwedding.band/api/callback` (and optionally `https://mauiwedding.band/api/callback`)
    - After creating it, click **Generate a new client secret**. Keep the Client ID and the secret handy.
 2. **Add the two values to Vercel.** Vercel > the `golden-hour-collective` project > Settings > Environment Variables. Add (for Production and Preview):
    - `GITHUB_OAUTH_ID` = the Client ID
@@ -21,7 +21,7 @@ Anyone can reach the login page, but only people you add as collaborators can ac
 
 ## How Tim edits (no code)
 
-1. Go to **https://mauiwedding.band/admin** and click **Login with GitHub**. The first time, GitHub asks him to authorize the app. Click Authorize.
+1. Go to **https://www.mauiwedding.band/admin** and click **Login with GitHub**. The first time, GitHub asks him to authorize the app. Click Authorize.
 2. Pick what to edit from the left menu:
    - **Photos**: the top photo beside the headline and the About photo. Click the photo, choose **Choose different image** > **Upload**.
    - **Videos**: paste YouTube links (use YouTube's Share button). The first one loads first. Drag to reorder.
