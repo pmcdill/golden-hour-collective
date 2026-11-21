@@ -257,6 +257,25 @@
   var sectionIds = navLinks.map(function (a) { return a.getAttribute("data-nav"); });
 
   var siteHeader = document.querySelector(".site-header");
+  var headerBar = document.querySelector(".header-bar");
+  var menuEl = document.getElementById("navMenu");
+
+  // The bar is fixed to the top and shrinks on scroll; this keeps a spacer the bar's full height
+  // in the page so nothing below it jumps when the bar shrinks.
+  function measureHeader() {
+    if (!siteHeader || !headerBar) return;
+    if (menuEl && menuEl.classList.contains("open")) return;
+    var wasCompact = siteHeader.classList.contains("compact");
+    siteHeader.classList.add("measuring");
+    siteHeader.classList.remove("compact");
+    siteHeader.style.setProperty("--hdr-h", headerBar.offsetHeight + "px");
+    if (wasCompact) siteHeader.classList.add("compact");
+    void siteHeader.offsetWidth;
+    siteHeader.classList.remove("measuring");
+  }
+  measureHeader();
+  window.addEventListener("resize", measureHeader);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureHeader);
   var navLinksEl = document.getElementById("navLinks");
   var navInd = navLinksEl ? navLinksEl.querySelector(".nav-ind") : null;
   var indShown = false;

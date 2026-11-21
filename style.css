@@ -98,8 +98,15 @@ a { color: inherit; }
 
 /* NAV */
 .site-header {
-  position: sticky;
+  position: relative;
+  z-index: 50;
+  height: var(--hdr-h, 73px); /* holds the bar's place in the page; set by script.js */
+}
+.header-bar {
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
   background: rgba(240,235,228,0.86);
   backdrop-filter: blur(10px);
@@ -575,11 +582,18 @@ a { color: inherit; }
 /* ---------- MOTION ---------- */
 
 /* Header settles once the page scrolls (no height change, so nothing jumps) */
-.site-header { transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
-.site-header.compact {
+.header-bar { transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
+.site-header.compact .header-bar {
   background: rgba(240,235,228,0.94);
   box-shadow: 0 12px 28px -18px rgba(36,31,56,0.5);
 }
+.nav { transition: padding 0.35s var(--ease); }
+.site-header.compact .nav { padding-top: 8px; padding-bottom: 8px; }
+.site-header .btn-nav { transition: padding 0.35s var(--ease), font-size 0.35s var(--ease), background 0.25s ease, transform 0.2s var(--ease); }
+@media (min-width: 641px) {
+  .site-header.compact .btn-nav { padding: 7px 16px; font-size: 12px; }
+}
+.site-header.measuring, .site-header.measuring * { transition: none !important; }
 .wordmark { transform-origin: left center; transition: transform 0.4s var(--ease); }
 .site-header.compact .wordmark { transform: scale(0.9); }
 .wordmark:hover .nav-logo { animation: logoWobble 0.9s var(--ease); }
