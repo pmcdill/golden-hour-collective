@@ -9,11 +9,22 @@
 <body>
   <script src="https://unpkg.com/decap-cms@3.17.0/dist/decap-cms.js"></script>
   <script>
-    // Adds an "Analytics" link to the editor's top bar.
+    // Floating "Analytics" button, shown once someone is logged in to the editor.
     (function () {
-      if (window.CMS && CMS.registerAdditionalLink) {
-        CMS.registerAdditionalLink({ id: "analytics", title: "Analytics", data: "/admin/stats.html", options: { icon: "page" } });
+      var link = document.createElement("a");
+      link.href = "/admin/stats.html";
+      link.textContent = "Analytics";
+      link.setAttribute("aria-label", "Open website analytics");
+      link.style.cssText = "position:fixed;right:20px;bottom:20px;z-index:99999;display:none;" +
+        "padding:10px 18px;border-radius:999px;background:#a64d27;color:#fff;font:600 14px system-ui,sans-serif;" +
+        "text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.25)";
+      document.body.appendChild(link);
+      function loggedIn() {
+        try { return !!(localStorage.getItem("decap-cms-user") || localStorage.getItem("netlify-cms-user")); } catch (e) { return false; }
       }
+      function update() { link.style.display = loggedIn() ? "block" : "none"; }
+      update();
+      setInterval(update, 1000);
     })();
   </script>
   <script>
