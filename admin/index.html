@@ -8,5 +8,25 @@
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@3.17.0/dist/decap-cms.js"></script>
+  <script>
+    // Keep the song list alphabetical by artist (ignoring a leading "The") every time it is saved.
+    // This matches how the website sorts it, so the editor and the site always agree.
+    (function () {
+      if (!window.CMS) return;
+      var key = function (s) { return String(s || "").replace(/^the\s+/i, "").toLowerCase(); };
+      CMS.registerEventListener({
+        name: "preSave",
+        handler: function (args) {
+          var data = args.entry.get("data");
+          var songs = data && data.get("songs");
+          if (!songs || !songs.sort) return undefined;
+          return data.set("songs", songs.sort(function (a, b) {
+            return key(a.get("artist")).localeCompare(key(b.get("artist")), "en") ||
+                   key(a.get("title")).localeCompare(key(b.get("title")), "en");
+          }));
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

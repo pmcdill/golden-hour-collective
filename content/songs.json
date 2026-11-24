@@ -127,13 +127,18 @@
     },
     {
       "artist": "Coldplay",
-      "title": "Yellow",
+      "title": "Green Eyes",
       "genre": "top40"
     },
     {
       "artist": "Coldplay",
-      "title": "Green Eyes",
+      "title": "Yellow",
       "genre": "top40"
+    },
+    {
+      "artist": "The Cranberries",
+      "title": "Dreams",
+      "genre": "dance"
     },
     {
       "artist": "Cultura Profética",
@@ -152,13 +157,23 @@
     },
     {
       "artist": "Dave Matthews Band",
-      "title": "Satellite",
+      "title": "Crash Into Me",
       "genre": "rock"
     },
     {
       "artist": "Dave Matthews Band",
-      "title": "Crash Into Me",
+      "title": "Satellite",
       "genre": "rock"
+    },
+    {
+      "artist": "Dennis Kamakahi",
+      "title": "Wahine 'Ilikea",
+      "genre": "folk"
+    },
+    {
+      "artist": "Don Ho",
+      "title": "Tiny Bubbles",
+      "genre": "folk"
     },
     {
       "artist": "The Doobie Brothers",
@@ -172,13 +187,18 @@
     },
     {
       "artist": "Eagles",
-      "title": "Take it Easy",
+      "title": "Hotel California",
       "genre": "rock"
     },
     {
       "artist": "Eagles",
-      "title": "Hotel California",
+      "title": "Take it Easy",
       "genre": "rock"
+    },
+    {
+      "artist": "Ed Sheeran",
+      "title": "Perfect",
+      "genre": "top40"
     },
     {
       "artist": "Ed Sheeran",
@@ -188,11 +208,6 @@
     {
       "artist": "Ed Sheeran",
       "title": "Thinking Out Loud",
-      "genre": "top40"
-    },
-    {
-      "artist": "Ed Sheeran",
-      "title": "Perfect",
       "genre": "top40"
     },
     {
@@ -232,12 +247,12 @@
     },
     {
       "artist": "Frank Sinatra",
-      "title": "I’ve Got You Under My Skin",
+      "title": "Fly Me to the Moon",
       "genre": "soul"
     },
     {
       "artist": "Frank Sinatra",
-      "title": "Fly Me to the Moon",
+      "title": "I’ve Got You Under My Skin",
       "genre": "soul"
     },
     {
@@ -246,39 +261,14 @@
       "genre": "rock"
     },
     {
-      "artist": "Harry Styles",
-      "title": "As It Was",
-      "genre": "top40"
-    },
-    {
-      "artist": "John Cruz",
-      "title": "Island Style",
-      "genre": "folk"
-    },
-    {
-      "artist": "Dennis Kamakahi",
-      "title": "Wahine 'Ilikea",
-      "genre": "folk"
-    },
-    {
-      "artist": "Don Ho",
-      "title": "Tiny Bubbles",
-      "genre": "folk"
-    },
-    {
       "artist": "Hapa",
       "title": "Ka Uluwehi O Ke Kai",
       "genre": "folk"
     },
     {
-      "artist": "Iz",
-      "title": "Over the Rainbow/What a Wonderful World",
-      "genre": "folk"
-    },
-    {
-      "artist": "Iz",
-      "title": "White Sandy Beach",
-      "genre": "folk"
+      "artist": "Harry Styles",
+      "title": "As It Was",
+      "genre": "top40"
     },
     {
       "artist": "Incubus",
@@ -293,6 +283,21 @@
     {
       "artist": "Iron and Wine",
       "title": "Such Great Heights",
+      "genre": "folk"
+    },
+    {
+      "artist": "Iz",
+      "title": "Over the Rainbow/What a Wonderful World",
+      "genre": "folk"
+    },
+    {
+      "artist": "Iz",
+      "title": "White Sandy Beach",
+      "genre": "folk"
+    },
+    {
+      "artist": "Jack Johnson",
+      "title": "Banana Pancakes",
       "genre": "folk"
     },
     {
@@ -311,14 +316,19 @@
       "genre": "folk"
     },
     {
-      "artist": "Jack Johnson",
-      "title": "Banana Pancakes",
-      "genre": "folk"
+      "artist": "The Jackson 5",
+      "title": "I Want You Back",
+      "genre": "soul"
     },
     {
       "artist": "James Taylor",
       "title": "How Sweet It Is (To Be Loved By You)",
       "genre": "soul"
+    },
+    {
+      "artist": "Jason Mraz",
+      "title": "I Won't Give Up",
+      "genre": "folk"
     },
     {
       "artist": "Jason Mraz",
@@ -328,11 +338,6 @@
     {
       "artist": "Jason Mraz",
       "title": "Lucky",
-      "genre": "folk"
-    },
-    {
-      "artist": "Jason Mraz",
-      "title": "I Won't Give Up",
       "genre": "folk"
     },
     {
@@ -346,9 +351,9 @@
       "genre": "dance"
     },
     {
-      "artist": "John Denver",
-      "title": "Take Me Home, Country Roads",
-      "genre": "rock"
+      "artist": "John Cruz",
+      "title": "Island Style",
+      "genre": "folk"
     },
     {
       "artist": "John Denver",
@@ -356,13 +361,18 @@
       "genre": "rock"
     },
     {
-      "artist": "John Mayer",
-      "title": "Gravity",
-      "genre": "folk"
+      "artist": "John Denver",
+      "title": "Take Me Home, Country Roads",
+      "genre": "rock"
     },
     {
       "artist": "John Mayer",
       "title": "Daughters",
+      "genre": "folk"
+    },
+    {
+      "artist": "John Mayer",
+      "title": "Gravity",
       "genre": "folk"
     },
     {
@@ -374,6 +384,11 @@
       "artist": "Justin Bieber",
       "title": "Daisies",
       "genre": "top40"
+    },
+    {
+      "artist": "The Killers",
+      "title": "Mr. Brightside",
+      "genre": "dance"
     },
     {
       "artist": "Lady Gaga",
@@ -516,6 +531,11 @@
       "genre": "top40"
     },
     {
+      "artist": "The Shins",
+      "title": "New Slang",
+      "genre": "folk"
+    },
+    {
       "artist": "Simon & Garfunkel",
       "title": "Feelin’ Groovy",
       "genre": "folk"
@@ -557,33 +577,13 @@
     },
     {
       "artist": "Taylor Swift",
-      "title": "Shake It Off",
-      "genre": "top40"
-    },
-    {
-      "artist": "Taylor Swift",
       "title": "Lover",
       "genre": "top40"
     },
     {
-      "artist": "The Cranberries",
-      "title": "Dreams",
-      "genre": "dance"
-    },
-    {
-      "artist": "The Jackson 5",
-      "title": "I Want You Back",
-      "genre": "soul"
-    },
-    {
-      "artist": "The Killers",
-      "title": "Mr. Brightside",
-      "genre": "dance"
-    },
-    {
-      "artist": "The Shins",
-      "title": "New Slang",
-      "genre": "folk"
+      "artist": "Taylor Swift",
+      "title": "Shake It Off",
+      "genre": "top40"
     },
     {
       "artist": "The Temptations",

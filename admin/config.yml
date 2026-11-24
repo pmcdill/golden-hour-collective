@@ -71,8 +71,9 @@ collections:
             name: songs
             widget: list
             add_to_top: true
+            allow_reorder: false
             summary: "{{fields.title}} — {{fields.artist}}"
-            hint: The site sorts songs by artist automatically, so you can add a new song anywhere.
+            hint: Songs are kept in alphabetical order by artist automatically. Just add a new song and Publish.
             fields:
               - { label: Song title, name: title, widget: string }
               - { label: Artist, name: artist, widget: string }
