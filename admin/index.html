@@ -9,6 +9,14 @@
 <body>
   <script src="https://unpkg.com/decap-cms@3.17.0/dist/decap-cms.js"></script>
   <script>
+    // Adds an "Analytics" link to the editor's top bar.
+    (function () {
+      if (window.CMS && CMS.registerAdditionalLink) {
+        CMS.registerAdditionalLink({ id: "analytics", title: "Analytics", data: "/admin/stats.html", options: { icon: "page" } });
+      }
+    })();
+  </script>
+  <script>
     // Keep the song list alphabetical by artist (ignoring a leading "The") every time it is saved.
     // This matches how the website sorts it, so the editor and the site always agree.
     (function () {

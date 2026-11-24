@@ -497,6 +497,12 @@
     dateInput.placeholder = "e.g. " + MONTHS[m] + " " + y;
   }
 
+  /* ---------- Page view counter (anonymous; no cookies, no IP stored) ---------- */
+  try {
+    if (navigator.sendBeacon) navigator.sendBeacon("/api/track", "1");
+    else fetch("/api/track", { method: "POST", body: "1", keepalive: true });
+  } catch (err) {}
+
   /* ---------- Footer year ---------- */
   document.getElementById("footerYear").textContent = "© " + new Date().getFullYear() + " Ocean Tones Collective";
 })();
