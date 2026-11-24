@@ -1,14 +1,21 @@
 {
   "buildCommand": "node scripts/build.js",
   "outputDirectory": "public",
-  "rewrites": [
-    { "source": "/admin", "destination": "/admin/index.html" }
+  "redirects": [
+    {
+      "source": "/admin",
+      "destination": "/admin/",
+      "permanent": false
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     }
   ]
